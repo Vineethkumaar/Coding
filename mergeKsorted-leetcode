@@ -1,0 +1,43 @@
+class Solution {
+public:
+    struct great { 
+    bool operator()( ListNode* a,  ListNode* b) 
+    { 
+        return a->val > b->val; 
+    } 
+}; 
+    ListNode* mergeKLists(vector<ListNode*>& v) {
+        
+      priority_queue< ListNode * , vector<ListNode *> , great > pq;
+        ListNode *start=NULL,*temp;
+        
+        if(v.size()==0)
+            return NULL;
+       
+        for(int i=0;i<v.size();i++)
+            if(v[i]!=NULL)
+            pq.push(v[i]);
+        
+        
+     while(!pq.empty())
+        {
+         ListNode* cur=pq.top();
+           pq.pop();
+          
+         if(cur->next!=NULL)
+             pq.push(cur->next);
+         
+         if(start==NULL)
+         {
+             start=cur;
+             temp=cur;
+         }
+         else
+         {
+             temp->next=cur;
+             temp=cur;    
+         }  
+       }
+      return start;   
+    }
+};
