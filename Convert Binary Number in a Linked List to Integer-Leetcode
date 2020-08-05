@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int sum=0;
+        int n=0;
+        ListNode* temp=head;
+        while(temp->next!=NULL)
+        {
+              temp=temp->next;
+            n++;
+        }
+        cout<<n;
+        temp=head;
+        while(temp!=NULL)
+        {
+            sum=sum+(temp->val)*pow(2,n);
+            cout<<sum;
+            n--;
+            temp=temp->next;
+        }
+        
+        return sum;
+    }
+};
