@@ -62,30 +62,22 @@ public:
         TreeNode *node = new TreeNode (val);
         if(root==NULL)
             return node;
-        TreeNode *temp=root;
+        TreeNode *temp=root,*prev=root;
         
      while(temp!=NULL)
      {
-         if(temp->val >= val)
-         {
-             if(temp->left!=NULL)
-                 temp=temp->left;
-             else
-             {
-                 temp->left=node;
-                 break;
-             }
-         }
-         else
-             if(temp->right!=NULL)
-                 temp=temp->right;
-             else
-             {
-                 temp->right=node;
-                 break;
-             }
-     }
+         prev=temp;
          
+         if(temp->val >= val)
+            temp=temp->left;
+         else
+          temp=temp->right;
+     }
+        
+         if(prev->val>=val) 
+             prev->left=node;
+        else
+            prev->right=node;
          return root;
     }     
    
