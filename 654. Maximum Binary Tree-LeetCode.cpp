@@ -11,7 +11,7 @@
  */
 class Solution {
     vector<int> n;
-    TreeNode *head=NULL;
+   // TreeNode *head=NULL;
 public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
           
@@ -46,8 +46,7 @@ public:
             return NULL;
         
         int j=fmax(s,l);
-        TreeNode *temp = new TreeNode();
-        temp->val=n[j];
+        TreeNode *temp = new TreeNode(n[j]);
         
       //  if(root==NULL)
         //    head=temp;
