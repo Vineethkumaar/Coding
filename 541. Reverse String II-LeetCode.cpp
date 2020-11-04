@@ -3,17 +3,16 @@ public:
     string reverseStr(string s, int k) {
         
       
-        string temp="",res="";
-        int c=2*k;
+        string res="",l="";
         
     for(int i=0 ;s.size()>0; i++)
     {
-       if(s.size()>=c)
+       if(s.size()>=2*k)
        {
           reverse(s.begin(),s.begin()+k);
-          string l=s.substr(0,c);
+          l+=s.substr(0,k*2);
           res=res+l;
-          s.erase(0,c);
+          s.erase(0,k*2);
        }
         else if(s.size()<k)
         {
@@ -22,13 +21,14 @@ public:
             s.erase();
         }
         
-        else if(s.size()>=k && s.size()<c)
+        else if(s.size()>=k && s.size()<2*k)
         {
           reverse(s.begin(),s.begin()+k);
-          string l=s.substr(0,s.size());
+          l+=s.substr(0,s.size());
           res=res+l;
           s.erase();
         }
+        l="";
     }
         
         
