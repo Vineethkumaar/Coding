@@ -32,3 +32,31 @@ public:
         
     }
 };
+
+
+
+OR
+
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        
+        
+       int ss[26]={0},tt[26]={0},res=0;
+        
+        for(int i=0; i<s.length();i++)
+            
+        {
+            ss[s[i]-'a']++;
+            tt[t[i]-'a']++;    
+            
+        }
+        
+        for(int i=0; i<26 ; i++)
+            if(ss[i]>tt[i])
+                res+=ss[i]-tt[i];
+                
+        
+        return res;
+    }
+};
